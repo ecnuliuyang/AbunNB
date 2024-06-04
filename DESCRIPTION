@@ -1,0 +1,19 @@
+Package: AbunNB
+Type: Package
+Title: Penalized empirical likelihood estimation and EM algorithms for
+        the zero-truncated negative binomial regression model
+Version: 0.1.0
+Authors@R: c(person("Liu", "Yang",
+            email = "liuyangecnu@163.com", 
+            role=c("aut","cre")))
+Maintainer: Yang Liu <liuyangecnu@163.com>
+Description: This package deploys EM algorithms to implement the penalized empirical likelihood estimation for the zero-truncated negative binomial regression model. 
+License: GPL-2
+Encoding: UTF-8
+LazyLoad: yes
+LazyData: true
+RoxygenNote: 7.2.3
+Depends: R (>= 3.5.0)
+Imports: methods, stats, MASS
+Suggests: knitr, rmarkdown, testthat (>= 2.1.0)
+VignetteBuilder: knitr
