@@ -25,7 +25,7 @@ As an example, the following codes are provided to show the usage of the main fu
 
 library(AbunNB)
 
-example(abun_nb_ci)
+example(abun_nb)
 
 
 # Reference
