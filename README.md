@@ -36,9 +36,13 @@ To reproduce analyses in the case study in Ji and Liu (2024), we present the cor
 + Code to summarize the frequencie of the number of captures and sex information (Table 3 in Ji and Liu (2024))
   
 library(AbunNB)
+
 dat <- data.frame(y = rowSums(blackbear[,-9]), sex = blackbear[,9])
+
 tab3 <- aggregate(dat$y, by = list(dat$sex), table)$x
+
 names(tab3) <- c("Male", "Female")
+
 tab3
 
 
@@ -71,13 +75,12 @@ round(abun_nb_se(mpele)$se_N,1)
 round(mpele@Nchao)
 
 
-+ Code to calculate the ratio regression estimate with weights (3.2) in Rocchetti et al. (2011)
++ Code to calculate the ratio regression estimate and standard error with weights (3.2) in Rocchetti et al. (2011)
   
 fit <- lm(log(r)~y[-length(y)], weights = 1/(1/fy[-length(fy)] + 1/fy[-1]))
 f0_ratioReg <- fy[1]*exp(-fit$coefficients[1])
 N_ratioReg <- length(dat$y) + f0_ratioReg
 round(N_ratioReg)
-### Standard error; see (2.3) in Rocchetti et al. (2011; AoAS)
 varN <- length(dat$y)*f0_ratioReg/N_ratioReg + exp(-2*fit$coefficients[1]) *
   fy[1] * (fy[1]*summary(fit)$coefficients[1,2]^2+1)
 round(sqrt(varN),1)
@@ -85,16 +88,19 @@ round(sqrt(varN),1)
 
 
 - Code to calculate the maximum penalized empirical likelihood estimate and standard error of the dispersion parameter
+  
 round(mpele@k,1)
 round(abun_nb_se(mpele)$se_k,1)
 
 
 + Code to calculate the (penalized) empirical likelihood ratio confidence intervals of abundance under the negative binomial regression model
+  
 round(abun_nb_ci(mele))
 round(abun_nb_ci(mpele))
 
 
 - Code to plot the subfigure B of Figure 1 in Ji and Liu (2024)
+  
 Ns <- seq(50, 550, length = 200)
 elr <- NULL
 pelr <- NULL
@@ -119,7 +125,7 @@ legend("bottomright", c("With penalty", "Without penalty"), col = c(2, 1),
 # Reference
 Ji, Y., and Liu, Y. (2024). A penalized empirical likelihood approach for estimating population sizes under the negative binomial regression model. *Journal of Computational and Applied Mathematics*, submitted.
 
-Rocchetti, I., Bunge, J., and B$\ddot o$hning, D. (2011). Populationsize estimation based upon ratios of recapture probabilities. *Annals of Applied Statistics*, **5**, 1512–1533.
+Rocchetti, I., Bunge, J., and Bohning, D. (2011). Populationsize estimation based upon ratios of recapture probabilities. *Annals of Applied Statistics*, **5**, 1512–1533.
 
 #
 
