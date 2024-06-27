@@ -28,8 +28,15 @@ library(AbunNB)
 example(abun_nb)
 
 
+
+# Case study 
+
+
+
+
+
 # Reference
-Ji, Y., and Liu, Y. (2024). A penalized empirical likelihood approach for estimating population sizes under the zero-truncated negative binomial regression model. *Biometrical Journal*, submitted.
+Ji, Y., and Liu, Y. (2024). A penalized empirical likelihood approach for estimating population sizes under the zero-truncated negative binomial regression model. *Journal of Computational and Applied Mathematics*, submitted.
 
 
 #
