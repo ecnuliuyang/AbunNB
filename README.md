@@ -108,7 +108,7 @@ round(mpele@k,1)
 round(abun_nb_se(mpele)$se_k,1)
 
 
-+ Code to calculate the (penalized) empirical likelihood ratio confidence intervals of abundance under the negative binomial regression model
++ Code to calculate the (penalized) empirical likelihood ratio confidence intervals of abundance 
   
 round(abun_nb_ci(mele))
 
